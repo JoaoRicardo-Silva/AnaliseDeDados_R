@@ -14,7 +14,7 @@
 ?read.csv
 
 viagens <- read.csv( 
-    file = "/home/rick/Documentos/GitHub/analiseDeDados-LinguagemR/2019_Viagem.csv", 
+    file = "/home/rick/Documentos/GitHub/AnaliseDeDados_R/2019_Viagem.csv", 
     sep = ";", 
     dec = ',',
     fileEncoding = "latin1" #para ler o arquivo com acentuação
