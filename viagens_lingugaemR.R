@@ -25,5 +25,22 @@ head(viagens)
 
 View(viagens)
 
+#Verificar dimensões do dataset
+dim(viagens)
 
+?summary
 
+#Resumo do dataset - valores min, max, media, mediana...
+summary(viagens)
+
+#Summary de uma coluna especifica
+summary (viagens$Valor.passagens)
+
+#Verificar tipo dos dados
+
+install.packages("dplyr")
+library (dplyr)
+
+glimpse(viagens)
+
+#Próxima aula aprender a Transformação dos dados obtidos
