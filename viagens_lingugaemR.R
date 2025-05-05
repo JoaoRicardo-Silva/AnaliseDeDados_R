@@ -43,4 +43,28 @@ library (dplyr)
 
 glimpse(viagens)
 
-#Próxima aula aprender a Transformação dos dados obtidos...
+### TRANSFORMAÇÃO DOS DADOS OBTIDOS
+#Convertendo o tipo do dato para tipo Date
+?as.Date
+
+viagens$data.inicio <- as.Date(viagens$Período...Data.de.início, "%d/%m/%Y")
+
+glimpse(viagens)
+
+#Formatando a adata de início - para utilizar apenas Ano/Mês
+?format
+viagens$data.inicio.formatada <- format(viagens$data.inicio, "%Y-%m")
+viagens$data.inicio.formatada
+
+### EXPLORAÇÃO DOS DADOS 
+
+#Gerando histograma da coluna passagens
+hist(viagens$Valor.passagens)
+
+#Outro exemplo de histograma - filtrando valores
+
+#Para esse exemplo serão utilizadas as funções filter e select
+?dplyr::filter
+?dplyr::select
+
+#Filtrando os valores das passagens - apenas passagens entre 200 e 5000
