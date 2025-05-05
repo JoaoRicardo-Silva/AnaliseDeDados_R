@@ -68,3 +68,66 @@ hist(viagens$Valor.passagens)
 ?dplyr::select
 
 #Filtrando os valores das passagens - apenas passagens entre 200 e 5000
+passagens_filtro <- viagens %>%
+    select (Valor.passagens) %>%
+    filter (Valor.passagens >= 200 & Valor.passagens <= 5000)
+
+passagens_filtro
+hist (passagens_filtro$Valor.passagens)
+
+#Verificando os valores min, max, média... da coluna valor
+summary (viagens$Valor.passagens)
+
+#Visualizando os valores em um boxplot
+boxplot (viagens$Valor.passagens)
+
+#Visualizando os valores das passagens - filtro de 200 a 5000
+boxplot (passagens_filtro$Valor.passagens)
+
+#Calculando o desvio padrão
+sd (viagens$Valor.passagens)
+
+#Verificar se existem valores não preenchidos nas colunas do datadrame
+?is.na
+
+?colSums
+
+colSums (is.na(viagens))
+
+#Verificar a quantidade de categorias da coluna Situação
+
+#Converter para factor
+viagens$Situação <- factor (viagens$Situação)
+
+str (viagens$Situação)
+
+#Verificar quantidade de registros em cada categoria
+table (viagens$Situação)
+
+#Obtendo os valores em percentual de cada categoria
+prop.table (table(viagens$Situação)) * 100
+
+
+### VISUALIZAÇÃO DOS RESULTADOS
+
+# 1. Qual é o valor gasto por orgão em passagens?
+
+#Criando um dataframe com os 15 órgãos que gastam mais
+library (dplyr)
+p1 <- viagens %>%
+    group_by (Nome.do.órgão.superior) %>%
+    summarise (n = sum(Valor.passagens)) %>%
+    arrange (desc(n)) %>%
+    top_n(15)
+
+#Altenrando o nome das colunas
+names(p1) <- c("orgao", "valor")
+
+p1
+
+#Plotando os dados com o ggplot
+library (ggplot2)
+ggplot(p1, aes(x = reorder(orgao, valor), y = valor))+
+  geom_bar(stat = "identity")+
+  coord_flip()+
+  labs(x = "Valor", y = "Órgãos")
