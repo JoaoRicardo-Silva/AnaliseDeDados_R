@@ -43,4 +43,4 @@ library (dplyr)
 
 glimpse(viagens)
 
-#Próxima aula aprender a Transformação dos dados obtidos
+#Próxima aula aprender a Transformação dos dados obtidos...
