@@ -27,6 +27,28 @@ str(diabetes)
 ?table
 table(diabetes$Outcome)
 
-#alterando o tipo da coluna "Outcome" que é int para factor
+#Alterando o tipo da coluna "Outcome" que é int para factor
 diabetes$Outcome <- as.factor(diabetes$Outcome)
 
+#Verificando valores min, max, média, mediana...
+summary(diabetes$Insulin)
+
+#Criando o gráfico de boxplot para cada coluna do dataset
+boxplot(diabetes)
+
+#Criando o boxplot apenas da coluna "Insulin"
+boxplot(diabetes$Insulin)
+
+#Criando um histograma da coluna 'Insulin'
+hist(diabetes$Insulin)
+
+install.packages("dplyr")
+library(dplyr)
+
+#Filtrando o dataset por Insulin - Remoção do outliers
+diabetes2 <- diabetes %>%
+  filter(Insulin <= 250)
+
+boxplot(diabetes2$Insulin)
+
+### Próximo passo -> Análise exploratória
