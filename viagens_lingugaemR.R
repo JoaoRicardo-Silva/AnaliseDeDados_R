@@ -173,3 +173,19 @@ ggplot (p3, aes(x = data.inicio.formatada, y = qtd, group = 1))+
 
 #Relembrando que todas as imagens plot geradas pelo ggplot estaram disponiveis neste projeto na pasta "img"
 
+#Exemplo de utilização do R markdown
+
+#Na linguagem R é possível usar o Markdown para formatar os seus relatórios
+
+#Instalação do Rmarkdown
+install.packages("rmarkdown")
+install.packages('tinytex')
+library(tinytex)
+
+#Esta linha por demorar um pouco para ser executada, acompanhe o processo na aba console e só prossiga após o fim da instalação
+tinytex::install_tinytex()
+
+# Próximos passos
+# Criar um arquivo R Markdown: File > New File RMarkdown
+# Criar script
+# Gerar Relatório: Knit > Knit to PDF
